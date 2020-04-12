@@ -19,6 +19,7 @@
 		AA1838E5243BB07E007CCF5C /* IvRouteTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838E4243BB07E007CCF5C /* IvRouteTrackerTests.swift */; };
 		AA1838F0243BB07E007CCF5C /* IvRouteTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838EF243BB07E007CCF5C /* IvRouteTrackerUITests.swift */; };
 		AA1838FE243BC422007CCF5C /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838FD243BC422007CCF5C /* MainMapView.swift */; };
+		AA18390024439646007CCF5C /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838FF24439646007CCF5C /* RouteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		AA1838EF243BB07E007CCF5C /* IvRouteTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IvRouteTrackerUITests.swift; sourceTree = "<group>"; };
 		AA1838F1243BB07E007CCF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1838FD243BC422007CCF5C /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
+		AA1838FF24439646007CCF5C /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
 		BB216FA7BD533F7D1D8023E4 /* Pods_IvRouteTracker_IvRouteTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IvRouteTracker_IvRouteTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF48BFDF6ED4D03B8179BE7 /* Pods-IvRouteTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IvRouteTracker.debug.xcconfig"; path = "Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +138,7 @@
 				AA1838D1243BB078007CCF5C /* MapViewController.swift */,
 				AA1838FD243BC422007CCF5C /* MainMapView.swift */,
 				AA1838D3243BB078007CCF5C /* Main.storyboard */,
+				AA1838FF24439646007CCF5C /* RouteService.swift */,
 				AA1838D6243BB07E007CCF5C /* Assets.xcassets */,
 				AA1838D8243BB07E007CCF5C /* LaunchScreen.storyboard */,
 				AA1838DB243BB07E007CCF5C /* Info.plist */,
@@ -183,6 +186,7 @@
 				AA1838C7243BB077007CCF5C /* Frameworks */,
 				AA1838C8243BB077007CCF5C /* Resources */,
 				5DE10A59B4760187A428A73C /* [CP] Copy Pods Resources */,
+				5EB91BBE75E6989A5077629E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -221,6 +225,7 @@
 				AA1838E8243BB07E007CCF5C /* Frameworks */,
 				AA1838E9243BB07E007CCF5C /* Resources */,
 				B892D3A79B25D41EAA4E4024 /* [CP] Copy Pods Resources */,
+				9CC071FF6F8004384C44FC6D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -342,6 +347,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5EB91BBE75E6989A5077629E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6698BD6EE83493E3CC5AD38F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +384,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9CC071FF6F8004384C44FC6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker-IvRouteTrackerUITests/Pods-IvRouteTracker-IvRouteTrackerUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker-IvRouteTrackerUITests/Pods-IvRouteTracker-IvRouteTrackerUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IvRouteTracker-IvRouteTrackerUITests/Pods-IvRouteTracker-IvRouteTrackerUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B892D3A79B25D41EAA4E4024 /* [CP] Copy Pods Resources */ = {
@@ -412,6 +451,7 @@
 			files = (
 				AA1838D2243BB078007CCF5C /* MapViewController.swift in Sources */,
 				AA1838CE243BB078007CCF5C /* AppDelegate.swift in Sources */,
+				AA18390024439646007CCF5C /* RouteService.swift in Sources */,
 				AA1838FE243BC422007CCF5C /* MainMapView.swift in Sources */,
 				AA1838D0243BB078007CCF5C /* SceneDelegate.swift in Sources */,
 			);

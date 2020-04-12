@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KVu-5L-SBT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,14 +20,21 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dqa-nt-T6F">
-                        <barButtonItem key="leftBarButtonItem" title="Update" id="Stg-hy-biv">
+                        <leftBarButtonItems>
+                            <barButtonItem title="Start" id="Stg-hy-biv">
+                                <connections>
+                                    <action selector="startTrack:" destination="BYZ-38-t0r" id="t28-Lf-HZX"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Finish" id="ggb-Ec-9sg">
+                                <connections>
+                                    <action selector="finishTrack:" destination="BYZ-38-t0r" id="qfE-om-Zbj"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Show" id="JvT-fd-Z90">
                             <connections>
-                                <action selector="updateLocation:" destination="BYZ-38-t0r" id="HT2-Su-IBe"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Current" id="JvT-fd-Z90">
-                            <connections>
-                                <action selector="currentLocation:" destination="BYZ-38-t0r" id="TI2-sb-2In"/>
+                                <action selector="showRoute:" destination="BYZ-38-t0r" id="kcY-2w-wco"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
