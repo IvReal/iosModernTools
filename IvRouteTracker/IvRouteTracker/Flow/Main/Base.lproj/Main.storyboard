@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="BYZ-38-t0r" customClass="MapViewController" customModule="IvRouteTracker" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MainMapView" customModule="IvRouteTracker">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="dqa-nt-T6F">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Show" id="JvT-fd-Z90">
+                                <connections>
+                                    <action selector="showRoute:" destination="BYZ-38-t0r" id="kcY-2w-wco"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Finish" id="ggb-Ec-9sg">
+                                <connections>
+                                    <action selector="finishTrack:" destination="BYZ-38-t0r" id="qfE-om-Zbj"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Start" id="Stg-hy-biv">
+                                <connections>
+                                    <action selector="startTrack:" destination="BYZ-38-t0r" id="t28-Lf-HZX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="8bC-Xf-vdC" id="1gU-aE-pod"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1605.7971014492755" y="87.723214285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fzP-P4-gww">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KVu-5L-SBT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hjg-63-zSN">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Lza-PC-Cq2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCP-hc-REd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695.6521739130435" y="87.723214285714278"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="TzB-FU-lSy">
+            <objects>
+                <viewController storyboardIdentifier="MainViewController" id="m7X-Sb-1CO" customClass="MainViewController" customModule="IvRouteTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z4M-im-7gz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P47-DN-IyM">
+                                <rect key="frame" x="100" y="244" width="214" height="30"/>
+                                <state key="normal" title="Show Map"/>
+                                <connections>
+                                    <action selector="showMap:" destination="m7X-Sb-1CO" eventType="touchUpInside" id="GZs-tY-qXP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grW-wU-sA7">
+                                <rect key="frame" x="100" y="304" width="214" height="30"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="logout:" destination="m7X-Sb-1CO" eventType="touchUpInside" id="VJu-Jt-fjp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="P47-DN-IyM" firstAttribute="top" secondItem="aqw-rj-JAc" secondAttribute="top" constant="200" id="7O5-Af-2o8"/>
+                            <constraint firstItem="aqw-rj-JAc" firstAttribute="trailing" secondItem="P47-DN-IyM" secondAttribute="trailing" constant="100" id="FEy-9Z-rxW"/>
+                            <constraint firstItem="P47-DN-IyM" firstAttribute="leading" secondItem="aqw-rj-JAc" secondAttribute="leading" constant="100" id="TbX-v4-PsW"/>
+                            <constraint firstItem="grW-wU-sA7" firstAttribute="top" secondItem="P47-DN-IyM" secondAttribute="bottom" constant="30" id="Tf5-ug-XEs"/>
+                            <constraint firstItem="aqw-rj-JAc" firstAttribute="trailing" secondItem="grW-wU-sA7" secondAttribute="trailing" constant="100" id="dSq-4Z-3YM"/>
+                            <constraint firstItem="grW-wU-sA7" firstAttribute="leading" secondItem="aqw-rj-JAc" secondAttribute="leading" constant="100" id="mPx-rt-Bau"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aqw-rj-JAc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHr-QS-CO3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696" y="788"/>
+        </scene>
+    </scenes>
+</document>

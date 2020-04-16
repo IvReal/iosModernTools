@@ -13,13 +13,22 @@ import GoogleMaps
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    var coordinator: ApplicationCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         GMSServices.provideAPIKey("AIzaSyDwINLfqTlumse_8WyqLpfhtIfZdbfi31I")
-        
+
+        if #available(iOS 13.0, *) {
+        } else {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.makeKeyAndVisible()
+            coordinator = ApplicationCoordinator()
+            coordinator?.start()
+        }
+
         return true
     }
 

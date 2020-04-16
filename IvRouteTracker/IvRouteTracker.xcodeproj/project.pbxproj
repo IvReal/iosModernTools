@@ -20,6 +20,17 @@
 		AA1838F0243BB07E007CCF5C /* IvRouteTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838EF243BB07E007CCF5C /* IvRouteTrackerUITests.swift */; };
 		AA1838FE243BC422007CCF5C /* MainMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838FD243BC422007CCF5C /* MainMapView.swift */; };
 		AA18390024439646007CCF5C /* RouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1838FF24439646007CCF5C /* RouteService.swift */; };
+		AA1839042447B6E8007CCF5C /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA1839032447B6E8007CCF5C /* Auth.storyboard */; };
+		AA1839062447B71D007CCF5C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839052447B71D007CCF5C /* LoginViewController.swift */; };
+		AA18390B2447BB24007CCF5C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18390A2447BB24007CCF5C /* MainViewController.swift */; };
+		AA18390D2447C160007CCF5C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18390C2447C160007CCF5C /* AuthService.swift */; };
+		AA18390F2447C375007CCF5C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18390E2447C375007CCF5C /* RegisterViewController.swift */; };
+		AA1839122447C646007CCF5C /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839112447C646007CCF5C /* BaseCoordinator.swift */; };
+		AA1839142447C6EE007CCF5C /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839132447C6EE007CCF5C /* ApplicationCoordinator.swift */; };
+		AA1839162447C86A007CCF5C /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839152447C86A007CCF5C /* AuthCoordinator.swift */; };
+		AA1839182447C9CC007CCF5C /* StoryboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839172447C9CC007CCF5C /* StoryboardHelper.swift */; };
+		AA18391A2447CA73007CCF5C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839192447CA73007CCF5C /* MainCoordinator.swift */; };
+		AA18391C2448A6B0007CCF5C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18391B2448A6B0007CCF5C /* Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +74,17 @@
 		AA1838F1243BB07E007CCF5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA1838FD243BC422007CCF5C /* MainMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapView.swift; sourceTree = "<group>"; };
 		AA1838FF24439646007CCF5C /* RouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteService.swift; sourceTree = "<group>"; };
+		AA1839032447B6E8007CCF5C /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		AA1839052447B71D007CCF5C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AA18390A2447BB24007CCF5C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		AA18390C2447C160007CCF5C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		AA18390E2447C375007CCF5C /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AA1839112447C646007CCF5C /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
+		AA1839132447C6EE007CCF5C /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		AA1839152447C86A007CCF5C /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		AA1839172447C9CC007CCF5C /* StoryboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardHelper.swift; sourceTree = "<group>"; };
+		AA1839192447CA73007CCF5C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		AA18391B2448A6B0007CCF5C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		BB216FA7BD533F7D1D8023E4 /* Pods_IvRouteTracker_IvRouteTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IvRouteTracker_IvRouteTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF48BFDF6ED4D03B8179BE7 /* Pods-IvRouteTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IvRouteTracker.debug.xcconfig"; path = "Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,12 +155,10 @@
 		AA1838CC243BB077007CCF5C /* IvRouteTracker */ = {
 			isa = PBXGroup;
 			children = (
+				AA1839012447B690007CCF5C /* Flow */,
+				AA18391D2448AC55007CCF5C /* Service */,
 				AA1838CD243BB077007CCF5C /* AppDelegate.swift */,
 				AA1838CF243BB078007CCF5C /* SceneDelegate.swift */,
-				AA1838D1243BB078007CCF5C /* MapViewController.swift */,
-				AA1838FD243BC422007CCF5C /* MainMapView.swift */,
-				AA1838D3243BB078007CCF5C /* Main.storyboard */,
-				AA1838FF24439646007CCF5C /* RouteService.swift */,
 				AA1838D6243BB07E007CCF5C /* Assets.xcassets */,
 				AA1838D8243BB07E007CCF5C /* LaunchScreen.storyboard */,
 				AA1838DB243BB07E007CCF5C /* Info.plist */,
@@ -162,6 +182,59 @@
 				AA1838F1243BB07E007CCF5C /* Info.plist */,
 			);
 			path = IvRouteTrackerUITests;
+			sourceTree = "<group>";
+		};
+		AA1839012447B690007CCF5C /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				AA1839022447B69F007CCF5C /* Auth */,
+				AA1839092447BABF007CCF5C /* Main */,
+				AA1839102447C611007CCF5C /* Coordinator */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		AA1839022447B69F007CCF5C /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				AA1839032447B6E8007CCF5C /* Auth.storyboard */,
+				AA1839052447B71D007CCF5C /* LoginViewController.swift */,
+				AA18390E2447C375007CCF5C /* RegisterViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		AA1839092447BABF007CCF5C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				AA1838D3243BB078007CCF5C /* Main.storyboard */,
+				AA18390A2447BB24007CCF5C /* MainViewController.swift */,
+				AA1838D1243BB078007CCF5C /* MapViewController.swift */,
+				AA1838FD243BC422007CCF5C /* MainMapView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		AA1839102447C611007CCF5C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				AA1839112447C646007CCF5C /* BaseCoordinator.swift */,
+				AA1839132447C6EE007CCF5C /* ApplicationCoordinator.swift */,
+				AA1839152447C86A007CCF5C /* AuthCoordinator.swift */,
+				AA1839192447CA73007CCF5C /* MainCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		AA18391D2448AC55007CCF5C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				AA1838FF24439646007CCF5C /* RouteService.swift */,
+				AA18390C2447C160007CCF5C /* AuthService.swift */,
+				AA1839172447C9CC007CCF5C /* StoryboardHelper.swift */,
+				AA18391B2448A6B0007CCF5C /* Alerts.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		FE17098EA46EE92C9D484CAF /* Frameworks */ = {
@@ -285,6 +358,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA1839042447B6E8007CCF5C /* Auth.storyboard in Resources */,
 				AA1838DA243BB07E007CCF5C /* LaunchScreen.storyboard in Resources */,
 				AA1838D7243BB07E007CCF5C /* Assets.xcassets in Resources */,
 				AA1838D5243BB078007CCF5C /* Main.storyboard in Resources */,
@@ -449,11 +523,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA18390F2447C375007CCF5C /* RegisterViewController.swift in Sources */,
+				AA18391C2448A6B0007CCF5C /* Alerts.swift in Sources */,
+				AA18391A2447CA73007CCF5C /* MainCoordinator.swift in Sources */,
+				AA1839062447B71D007CCF5C /* LoginViewController.swift in Sources */,
 				AA1838D2243BB078007CCF5C /* MapViewController.swift in Sources */,
+				AA18390D2447C160007CCF5C /* AuthService.swift in Sources */,
 				AA1838CE243BB078007CCF5C /* AppDelegate.swift in Sources */,
+				AA1839122447C646007CCF5C /* BaseCoordinator.swift in Sources */,
+				AA1839182447C9CC007CCF5C /* StoryboardHelper.swift in Sources */,
 				AA18390024439646007CCF5C /* RouteService.swift in Sources */,
 				AA1838FE243BC422007CCF5C /* MainMapView.swift in Sources */,
 				AA1838D0243BB078007CCF5C /* SceneDelegate.swift in Sources */,
+				AA18390B2447BB24007CCF5C /* MainViewController.swift in Sources */,
+				AA1839162447C86A007CCF5C /* AuthCoordinator.swift in Sources */,
+				AA1839142447C6EE007CCF5C /* ApplicationCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
