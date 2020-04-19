@@ -14,6 +14,7 @@ import GoogleMaps
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var coordinator: ApplicationCoordinator?
+    var blind: UIViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -31,7 +32,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        guard let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+        blind = UIViewController()
+        blind?.view?.backgroundColor = .white
+        nc.pushViewController(blind!, animated: true)
+    }
 
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard
+            let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController,
+            let _ = blind
+        else { return }
+        nc.popViewController(animated: true)
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     @available(iOS 13.0, *)
