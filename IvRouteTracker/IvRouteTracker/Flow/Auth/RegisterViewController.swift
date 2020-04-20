@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
@@ -16,7 +16,32 @@ class RegisterViewController: UIViewController {
      override func viewDidLoad() {
          super.viewDidLoad()
          view.backgroundColor = .white
+         
+         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+         self.view?.addGestureRecognizer(hideKeyboardGesture)
+         loginView.delegate = self
+         loginView.returnKeyType = .continue
+         passwordView.delegate = self
+         passwordView.returnKeyType = .done
      }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loginView.becomeFirstResponder()
+    }
+
+    @objc func hideKeyboard() {
+        self.view?.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField === loginView {
+            passwordView.becomeFirstResponder()
+        } else if textField === passwordView {
+            register(textField)
+        }
+        return true
+    }
 
     @IBAction func register(_ sender: Any) {
         // При нажатии на кнопку регистрации создайте пользователя и запишите в базу данных.
