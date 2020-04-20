@@ -7,7 +7,9 @@ target 'IvRouteTracker' do
 
   # Pods for IvRouteTracker
   pod 'GoogleMaps'
-  pod 'RealmSwift' 
+  pod 'RealmSwift'
+  pod 'RxSwift'
+  pod 'RxCocoa'  
 
   target 'IvRouteTrackerTests' do
     inherit! :search_paths

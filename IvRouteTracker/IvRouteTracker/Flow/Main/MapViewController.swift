@@ -8,7 +8,7 @@
 
 import UIKit
 import GoogleMaps
-import CoreLocation
+import RxSwift
 
 class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MainMapView!
@@ -23,13 +23,11 @@ class MapViewController: UIViewController {
         route = GMSPolyline() // Заменяем старую линию новой
         routePath = GMSMutablePath() // Заменяем старый путь новым, пока пустым (без точек)
         route?.map = mapView // Добавляем новую линию на карту
-        locationManager?.startUpdatingLocation() // Запускаем отслеживание или продолжаем, если оно уже запущено
-        locationManager?.startMonitoringSignificantLocationChanges()
+        locationManager.startUpdatingLocation() // Запускаем отслеживание или продолжаем, если оно уже запущено
     }
     
     @IBAction func finishTrack(_ sender: Any) {
-        locationManager?.stopUpdatingLocation() // Останавливаем отслеживание
-        locationManager?.stopMonitoringSignificantLocationChanges()
+        locationManager.stopUpdatingLocation() // Останавливаем отслеживание
         writeTrackToDb() // Записываем трек в БД
     }
     
@@ -39,10 +37,11 @@ class MapViewController: UIViewController {
     }
     
     let initCoordinate = CLLocationCoordinate2D(latitude: 59.925, longitude: 30.463) // СПб
-    var locationManager: CLLocationManager?
+    let locationManager = LocationManager.instance
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
     var prevRoute: GMSPolyline?
+    let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,15 +53,20 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         gotoLocation(coordinate: initCoordinate, withAnimate: false)
     }
-    
-    private func configureLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        //locationManager?.requestWhenInUseAuthorization()
-        locationManager?.requestAlwaysAuthorization()
+        
+    func configureLocationManager() {
+        locationManager
+            .location
+            .asObservable()
+            .bind { [weak self] location in
+                guard let location = location else { return }
+                self?.routePath?.add(location.coordinate)
+                self?.route?.path = self?.routePath // Обновляем путь у линии маршрута путём повторного присвоения
+                // Чтобы наблюдать за движением, установим камеру на только что добавленную точку
+                let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 17)
+                self?.mapView.animate(to: position)
+            }
+            .disposed(by: disposeBag)
     }
 
     private func gotoLocation(coordinate: CLLocationCoordinate2D, withAnimate: Bool) {
@@ -122,7 +126,8 @@ extension MapViewController: GMSMapViewDelegate {
     }
 }
 
-extension MapViewController: CLLocationManagerDelegate {
+/* location manager delegate example
+ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         /* markers path example
@@ -143,4 +148,4 @@ extension MapViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
     }
-}
+}*/

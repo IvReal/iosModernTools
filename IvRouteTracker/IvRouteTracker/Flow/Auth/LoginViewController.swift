@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     var onLogin: (() -> Void)?
     var onRegister: (() -> Void)?
+    let disposeBag = DisposeBag()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginView.returnKeyType = .continue
         passwordView.delegate = self
         passwordView.returnKeyType = .done
+        
+        Observable
+            .combineLatest(
+                loginView.rx.text,
+                passwordView.rx.text
+            )
+            .map { login, password in
+                return !(login ?? "").isEmpty && !(password ?? "").isEmpty
+            }
+            .bind { [weak loginButton] inputFilled in
+                loginButton?.isEnabled = inputFilled
+            }
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
