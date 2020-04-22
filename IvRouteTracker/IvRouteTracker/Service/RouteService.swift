@@ -40,7 +40,7 @@ class RouteService
         do {
             let realm = try Realm()
             realm.beginWrite()
-            realm.deleteAll()
+            realm.delete(realm.objects(TrackPoint.self))
             try realm.commitWrite()
         } catch {
             print(error)

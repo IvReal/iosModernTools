@@ -13,16 +13,18 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var loginView: UITextField!
     @IBOutlet weak var passwordView: UITextField!
     
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         view.backgroundColor = .white
+    var onRegister: (() -> Void)?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
          
-         let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-         self.view?.addGestureRecognizer(hideKeyboardGesture)
-         loginView.delegate = self
-         loginView.returnKeyType = .continue
-         passwordView.delegate = self
-         passwordView.returnKeyType = .done
+        let hideKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        self.view?.addGestureRecognizer(hideKeyboardGesture)
+        loginView.delegate = self
+        loginView.returnKeyType = .continue
+        passwordView.delegate = self
+        passwordView.returnKeyType = .done
      }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,8 +58,8 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
             return
         }
         if AuthService.instance.registerUser(login: login, password: password) {
-            showAlertOk("Info", "User was registered successfully") {
-                self.navigationController?.popViewController(animated: true)
+            showAlertOk("Info", "User \(login) was registered successfully") {
+                self.onRegister?()
             }
         } else {
             showAlert("Error", "Error occured while user register")

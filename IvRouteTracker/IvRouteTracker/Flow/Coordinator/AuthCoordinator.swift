@@ -38,6 +38,11 @@ final class AuthCoordinator: BaseCoordinator {
     private func showRegisterModule() {
         let controller = UIStoryboard(name: "Auth", bundle: nil)
             .instantiateViewController(RegisterViewController.self)
+        
+        controller.onRegister = { [weak self] in
+            self?.toMain()
+        }
+
         rootController?.pushViewController(controller, animated: true)
     }
     
