@@ -43,6 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController,
             let _ = blind
         else { return }
+        self.blind = nil
         nc.popViewController(animated: true)
     }
 

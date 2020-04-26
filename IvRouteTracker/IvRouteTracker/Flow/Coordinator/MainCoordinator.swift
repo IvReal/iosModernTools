@@ -13,6 +13,7 @@ final class MainCoordinator: BaseCoordinator {
     var rootController: UINavigationController?
     var onFinishFlow: (() -> Void)?
     
+    // Time profiler: 461 ms
     override func start() {
         showMainModule()
     }

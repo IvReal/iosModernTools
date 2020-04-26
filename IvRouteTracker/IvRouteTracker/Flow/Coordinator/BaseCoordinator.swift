@@ -34,6 +34,7 @@ class BaseCoordinator {
         }
     }
     
+    // Time profiler: 482 ms
     func setAsRoot(_ controller: UIViewController) {
         UIApplication.shared.keyWindow?.rootViewController = controller
     }

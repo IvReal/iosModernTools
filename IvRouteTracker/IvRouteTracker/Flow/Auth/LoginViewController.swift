@@ -63,6 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    // Time profiler: 511 ms
     @IBAction func login(_ sender: Any) {
         // При нажатии на кнопку «Вход» ищите пользователя в базе данных по его логину, затем проверьте пароль.
         // Если данные верны, авторизуйте пользователя.
