@@ -28,7 +28,7 @@ class NotificationService
         )
     }
         
-    func sendRemindRequest(id: String, content: UNNotificationContent, trigger: UNNotificationTrigger) {
+    func sendNotificationRequest(id: String, content: UNNotificationContent, trigger: UNNotificationTrigger) {
         let request = UNNotificationRequest(
             identifier: id,
             content: content,
@@ -42,13 +42,13 @@ class NotificationService
         }
     }
     
-    func sendExample() {
+    func sendExampleNotificationRequest() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             if settings.authorizationStatus == .authorized {
-                self.sendRemindRequest(
+                self.sendNotificationRequest(
                     id: "remind",
                     content: self.makeNotificationContent(title: "Reminder", body: "Let's continue to work with application"),
-                    trigger: self.makeIntervalNotificationTrigger(minutes: 0.5))
+                    trigger: self.makeIntervalNotificationTrigger(minutes: 30.0))
             }
         }
     }

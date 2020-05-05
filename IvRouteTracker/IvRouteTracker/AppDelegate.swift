@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-        NotificationService.instance.sendExample()
+        NotificationService.instance.sendExampleNotificationRequest()
         
         guard let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
         blind = UIViewController()

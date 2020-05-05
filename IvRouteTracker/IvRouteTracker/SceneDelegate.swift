@@ -50,7 +50,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
-        NotificationService.instance.sendExample()
+        NotificationService.instance.sendExampleNotificationRequest()
 
         guard let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
         blind = UIViewController()
