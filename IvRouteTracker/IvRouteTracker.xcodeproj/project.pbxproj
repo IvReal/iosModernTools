@@ -32,6 +32,7 @@
 		AA18391A2447CA73007CCF5C /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1839192447CA73007CCF5C /* MainCoordinator.swift */; };
 		AA18391C2448A6B0007CCF5C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA18391B2448A6B0007CCF5C /* Alerts.swift */; };
 		AA76F408244E1F9E001AB393 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA76F407244E1F9E001AB393 /* LocationManager.swift */; };
+		AAA0448B2461E82D00A06085 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA0448A2461E82D00A06085 /* NotificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		AA1839192447CA73007CCF5C /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		AA18391B2448A6B0007CCF5C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		AA76F407244E1F9E001AB393 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		AAA0448A2461E82D00A06085 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		BB216FA7BD533F7D1D8023E4 /* Pods_IvRouteTracker_IvRouteTrackerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IvRouteTracker_IvRouteTrackerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFF48BFDF6ED4D03B8179BE7 /* Pods-IvRouteTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IvRouteTracker.debug.xcconfig"; path = "Target Support Files/Pods-IvRouteTracker/Pods-IvRouteTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +238,7 @@
 				AA1839172447C9CC007CCF5C /* StoryboardHelper.swift */,
 				AA18391B2448A6B0007CCF5C /* Alerts.swift */,
 				AA76F407244E1F9E001AB393 /* LocationManager.swift */,
+				AAA0448A2461E82D00A06085 /* NotificationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				AA18390D2447C160007CCF5C /* AuthService.swift in Sources */,
 				AA1838CE243BB078007CCF5C /* AppDelegate.swift in Sources */,
 				AA1839122447C646007CCF5C /* BaseCoordinator.swift in Sources */,
+				AAA0448B2461E82D00A06085 /* NotificationService.swift in Sources */,
 				AA1839182447C9CC007CCF5C /* StoryboardHelper.swift in Sources */,
 				AA18390024439646007CCF5C /* RouteService.swift in Sources */,
 				AA1838FE243BC422007CCF5C /* MainMapView.swift in Sources */,

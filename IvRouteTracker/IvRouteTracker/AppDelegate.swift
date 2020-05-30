@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         GMSServices.provideAPIKey("AIzaSyDwINLfqTlumse_8WyqLpfhtIfZdbfi31I")
 
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {_,_ in })
+        
         if #available(iOS 13.0, *) {
         } else {
             window = UIWindow(frame: UIScreen.main.bounds)
@@ -34,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
+        NotificationService.instance.sendExampleNotificationRequest()
+        
         guard let nc = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
         blind = UIViewController()
         blind?.view?.backgroundColor = .white
