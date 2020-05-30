@@ -21,9 +21,9 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dqa-nt-T6F">
                         <rightBarButtonItems>
-                            <barButtonItem title="Show" id="JvT-fd-Z90">
+                            <barButtonItem title="Photo" id="JvT-fd-Z90">
                                 <connections>
-                                    <action selector="showRoute:" destination="BYZ-38-t0r" id="kcY-2w-wco"/>
+                                    <action selector="getPhoto:" destination="BYZ-38-t0r" id="kcY-2w-wco"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Finish" id="ggb-Ec-9sg">

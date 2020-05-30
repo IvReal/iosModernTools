@@ -31,9 +31,22 @@ class MapViewController: UIViewController {
         writeTrackToDb() // Записываем трек в БД
     }
     
-    @IBAction func showRoute(_ sender: Any) {
-        clearRoute()
-        loadTrackFromDbAndShow()
+    @IBAction func getPhoto(_ sender: Any) {
+        // Load Route from Db example
+        //clearRoute()
+        //loadTrackFromDbAndShow()
+        
+        // Проверка, поддерживает ли устройство камеру
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else { return }
+        // Создаём контроллер и настраиваем его
+        let imagePickerController = UIImagePickerController()
+        // Источник изображений: камера
+        imagePickerController.sourceType = .camera
+        // Изображение можно редактировать
+        imagePickerController.allowsEditing = true
+        imagePickerController.delegate = self
+        // Показываем контроллер
+        present(imagePickerController, animated: true)
     }
     
     let initCoordinate = CLLocationCoordinate2D(latitude: 59.925, longitude: 30.463) // СПб
@@ -42,6 +55,7 @@ class MapViewController: UIViewController {
     var routePath: GMSMutablePath?
     var prevRoute: GMSPolyline?
     let disposeBag = DisposeBag()
+    let marker: GMSMarker = GMSMarker()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +64,8 @@ class MapViewController: UIViewController {
     }
 
     private func configureMap() {
-        mapView.delegate = self
         gotoLocation(coordinate: initCoordinate, withAnimate: false)
+        marker.map = mapView
     }
         
     func configureLocationManager() {
@@ -64,6 +78,7 @@ class MapViewController: UIViewController {
                 self?.route?.path = self?.routePath // Обновляем путь у линии маршрута путём повторного присвоения
                 // Чтобы наблюдать за движением, установим камеру на только что добавленную точку
                 let position = GMSCameraPosition.camera(withTarget: location.coordinate, zoom: 17)
+                self?.marker.position = location.coordinate
                 self?.mapView.animate(to: position)
             }
             .disposed(by: disposeBag)
@@ -75,14 +90,6 @@ class MapViewController: UIViewController {
         } else {
             mapView.camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
         }
-    }
-    
-    private func addMarker(coordinate: CLLocationCoordinate2D) {
-        let marker = GMSMarker(position: coordinate)
-        //marker.icon = GMSMarker.markerImage(with: .green)
-        //marker.title = "My place"
-        //marker.snippet = "Now I'm here"
-        marker.map = mapView
     }
     
     private func writeTrackToDb() {
@@ -118,11 +125,36 @@ class MapViewController: UIViewController {
     }
 }
 
-extension MapViewController: GMSMapViewDelegate {
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        /* add marker example
-         let marker = GMSMarker(position: coordinate)
-         marker.map = mapView*/
+extension MapViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // закрытие UIImagePickerController по отмене
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+            // закрываем UIImagePickerController
+            picker.dismiss(animated: true) { [weak self] in
+                // после того, как он закроется, извлечём изображение
+                guard let image = self?.extractImage(from: info) else { return }
+                let imview = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                imview.image =  image
+                imview.layer.cornerRadius = imview.frame.size.width / 2
+                imview.clipsToBounds = true
+                self?.marker.iconView = imview
+
+            }
+    }
+    
+    private func extractImage(from info: [UIImagePickerController.InfoKey : Any]) -> UIImage? {
+        // отредактированное изображение
+        if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            return image
+        }
+        // оригинальное изображение
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            return image
+        }
+        return nil
     }
 }
 
